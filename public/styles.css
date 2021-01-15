@@ -1,0 +1,55 @@
+#app{
+  height:620px;
+  width: 310px;
+  display:flex;
+}
+
+.options{
+  height:42px;
+  width:310px;
+  display: flex;
+}
+
+.btn{
+  height:42px;
+  width: 155px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 16px;
+  border-bottom: 0.5px rgba(95, 109, 116, 0.18) solid;
+  padding-top: 8px;
+
+}
+
+#tour{
+  padding: 16px;
+  height: 540px;
+  width: 275px;
+  border: 0.5px rgba(95, 109, 116, 0.18) solid;
+  border-top: none;
+  box-shadow: rgba(59, 65, 68, 0.18) 0px 17px 21px -1px;
+  border-radius: 8px;
+}
+
+#info{
+
+  padding: 16px;
+  height: 540px;
+  width: 275px;
+  border: 0.5px rgba(95, 109, 116, 0.18) solid;
+  border-top: none;
+  box-shadow: rgba(59, 65, 68, 0.18) 0px 17px 21px -1px;
+  border-radius: 8px;
+}
+
+.btn-active{
+  border: 0.5px rgba(95, 109, 116, 0.18) solid;
+  border-bottom: none;
+}
+
+/************ GRID ************/
+
+/* .container{
+  display: grid;
+  grid-template-columns:
+} */
