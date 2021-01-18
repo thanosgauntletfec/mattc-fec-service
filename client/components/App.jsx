@@ -28,9 +28,8 @@ class App extends React.Component {
     var address;
     axios.get(`/api/homes/${id}`)
       .then(res => {
-        console.log(res.data[0].address)
         this.setState({
-          address: res.data[0].address
+          address: res.data
         })
       })
   }
@@ -46,8 +45,11 @@ class App extends React.Component {
       return (
         <div>
           <div className="options">
-            <span onClick={() => {this.changeView('tour')}} className={this.state.view === 'tour' ? "btn btn-active" : "btn"}>Schedule A Tour</span>
-            <span onClick={() => {this.changeView('info')}} className={this.state.view === 'info' ? "btn btn-active" : "btn"}>Request Info</span>
+            <span className="btn-tour-top tour-active-top"></span>
+            <span className="btn-tour-bottom tour-active-bottom"></span>
+            <span onClick={() => {this.changeView('tour')}} className="btn-tour tour-active">Schedule A Tour</span>
+            <span className={this.state.view === 'tour' ? "btn-info-bottom tour-info-bottom" : "btn-info-bottom"}></span>
+            <span onClick={() => {this.changeView('info')}} className= "btn-info">Request Info</span>
           </div>
           <Tour address={this.state.address} />
         </div>
@@ -56,8 +58,12 @@ class App extends React.Component {
          return (
         <div>
           <div className="options">
-            <span onClick={() => {this.changeView('tour')}} className={this.state.view === 'tour' ? "btn btn-active" : "btn"}>Schedule A Tour</span>
-            <span onClick={() => {this.changeView('info')}} className={this.state.view === 'info' ? "btn btn-active" : "btn"}>Request Info</span>
+            <span className="btn-tour-top"></span>
+            <span className="btn-tour-bottom"></span>
+            <span onClick={() => {this.changeView('tour')}} className="btn-tour">Schedule A Tour</span>
+            <span className="btn-info-top info-active-top"></span>
+            <span className="btn-info-bottom info-active-bottom"></span>
+            <span onClick={() => {this.changeView('info')}} className="btn-info info-active">Request Info</span>
           </div>
           <Info address={this.state.address} />
         </div>

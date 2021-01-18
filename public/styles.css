@@ -2,6 +2,7 @@
   height:620px;
   width: 310px;
   display:flex;
+  font-family: TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
 }
 
 .options{
@@ -10,25 +11,19 @@
   display: flex;
 }
 
-.btn{
-  height:42px;
-  width: 155px;
-  border-radius: 8px;
-  text-align: center;
-  font-size: 16px;
-  border-bottom: 0.5px rgba(95, 109, 116, 0.18) solid;
-  padding-top: 8px;
 
-}
 
 #tour{
   padding: 16px;
   height: 540px;
   width: 275px;
-  border: 0.5px rgba(95, 109, 116, 0.18) solid;
-  border-top: none;
+  border: 1.5px rgba(0, 0, 0, 0.18) solid;
+  margin-top: 1px;
   box-shadow: rgba(59, 65, 68, 0.18) 0px 17px 21px -1px;
-  border-radius: 8px;
+  border-radius:  0px 8px 8px 8px;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  overflow: hidden;
 }
 
 #info{
@@ -36,20 +31,296 @@
   padding: 16px;
   height: 540px;
   width: 275px;
-  border: 0.5px rgba(95, 109, 116, 0.18) solid;
-  border-top: none;
+  border:1.5px rgba(0, 0, 0, 0.18) solid;
   box-shadow: rgba(59, 65, 68, 0.18) 0px 17px 21px -1px;
+  border-radius: 8px 0px 8px 8px;
+
+}
+
+/* border: 0.5px rgba(95, 109, 116, 0.18) solid; */
+
+/************ BUTTONS ************/
+
+.btn-tour{
+
+  color: rgb(90,156,163);
+  height:26px;
+  width: 155px;
+  border-radius: 8px 8px 0px 0px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: lighter;
+  padding: 8px 16px;
+  cursor:pointer;
+  position: relative;
+
+
+}
+
+.btn-tour-top{
+  margin-top: 1px;
+  height: 20px;
+  width: 154px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.tour-active-top{
+
+ border: none;
+ cursor: pointer;
+
+
+}
+
+
+
+
+.btn-tour-bottom{
+  height: 20px;
+  width: 154px;
+  margin-top: 23px;
+  margin-left: 1px;
+border: none;
+  position: absolute;
+
+  cursor: pointer;
+}
+
+.tour-active-bottom{
+
+
+  border-radius: 0px;
+  cursor: pointer;
+  border:none;
+  border-bottom: 1px rgb(255, 255, 255) solid;
+
+}
+
+.btn-info{
+  color: rgb(90,156,163);
+  height:26px;
+  width: 155px;
+  border-radius: 8px 8px 0px 0px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: lighter;
+  padding: 8px 16px;
+  cursor: pointer;
+
+}
+
+.tour-active{
+  border: 0.5px rgba(0, 0, 0, 0.18) solid;
+  border-bottom: 1.5px rgba(255, 249, 249, 0.18) solid;;
+  border-radius: 8px 8px 0px 0px;
+
+}
+
+.info-active{
+  border: 0.5px rgba(0, 0, 0, 0.18) solid;
+  border-bottom: none;
+  border-radius: 8px 8px 0px 0px;
+}
+
+.btn-info-bottom{
+  height: 20px;
+  width: 154px;
+  margin-top: 22px;
+  margin-left: 155px;
+  border: none;
+  position: absolute;
+  z-index: -99;
+
+
+}
+
+.info-active-bottom{
+
+  cursor: pointer;
+  border-radius: 0px;
+
+  border:none;
+  border-bottom: 1px rgb(255, 255, 255) solid;
+  z-index:100;
+}
+
+.tour-type{
+  height:45px;
+  width:100%;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+button{
+  height: 45px;
+  width: 50%;
   border-radius: 8px;
 }
 
-.btn-active{
-  border: 0.5px rgba(95, 109, 116, 0.18) solid;
-  border-bottom: none;
+.inperson{
+  background-color: rgb(255,255,255);
+  border-radius: 8px 0px 0px 8px;
+  border-right:none;
+  border: 0.5px rgba(0, 0, 0, 0.18) solid;
+  font-size: 16px;
+  outline: none;
+
 }
+
+.videochat{
+  background-color: rgb(255,255,255);
+  border-radius: 0px 8px 8px 0px;
+  border-left:none;
+  border: 0.5px rgba(0, 0, 0, 0.18) solid;
+  font-size: 16px;
+  outline: none;
+}
+
+.inperson:hover{
+  background-color:rgba(0, 0, 0, 0.28);
+  cursor: pointer;
+  border: none;
+}
+
+.videochat:hover{
+  background-color:rgba(0, 0, 0, 0.28);
+  cursor: pointer;
+  border: none;
+}
+
+.type-active{
+  background-color: rgb(48,120,130);
+  color: white;
+  font-weight: bold;
+}
+
+.type-active:hover{
+  cursor: pointer;
+  background-color: rgb(48,120,130);
+
+}
+
+
 
 /************ GRID ************/
 
-/* .container{
+
+.container-tour{
   display: grid;
-  grid-template-columns:
-} */
+  /* grid-template-columns: */
+  grid-template-rows:90px 95px 220px auto
+}
+
+.container-info{
+  display: grid;
+
+}
+
+
+/************ TEXT ************/
+
+.type-text{
+  color: rgb(134, 144, 153);
+  width:100%;
+  margin-bottom:15px;
+  margin-top: 10px;
+}
+
+.weekday{
+  pointer-events:none;
+}
+
+.date{
+  pointer-events:none;
+}
+
+.month{
+  pointer-events:none;
+}
+
+/************ CALENDAR ************/
+.calendar{
+  height: 95px;
+  width: 250%;
+  margin-right: 8px;
+
+}
+
+.day{
+  box-sizing: border-box;
+  padding-top: 10px;
+  text-align: center;
+  line-height: 20px;
+  margin-top: 5px;
+  display: inline-block;
+  height:85px;
+  width: 65px;
+  margin-right: 5px;
+  border:1.5px rgba(0, 0, 0, 0.18) solid;
+  border-radius: 8px;
+}
+
+.day-blank{
+  margin-top: 5px;
+  color: rgb(255, 255, 255);
+  display: inline-block;
+  height:85px;
+  width: 62px;
+  margin-right: 5px;
+  border:1.5px rgb(255, 255, 255) solid;
+  border-radius: 8px;
+}
+
+.cal-view-two{
+
+  transform: translateX(-51%);
+  transition: transform 1s ease; /* our nice transition */
+}
+
+/************ TOOLTIP ************/
+.tooltip {
+  position: relative;
+  display: inline-block;
+
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: fff;
+  color: rgb(55, 58, 61);
+  text-align: left;
+  padding: 20px 20px;
+  border-radius: 6px;
+  padding-bottom: 20px;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltiptext{
+  /* margin-top:15px; */
+  border: 0.5px rgba(0, 0, 0, 0.18) solid;
+  background-color: white;
+  box-shadow: rgba(59, 65, 68, 0.18) 0px 17px 21px -1px;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.1px;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip .tooltiptext {
+  width: 320px;
+  top: 100%;
+  left: 50%;
+  font-weight: lighter;
+  margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+

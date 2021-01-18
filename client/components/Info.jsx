@@ -8,9 +8,11 @@ class Info extends React.Component {
     }
   }
 
+  
+
   render() {
     return(
-      <div id="info">
+      <div className="container-info" id="info">
         {this.props.address}
       </div>
     )

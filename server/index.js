@@ -16,7 +16,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/api/homes/:id', async (req, res) => {
   console.log('getting address for id', req.params.id, '...');
   let address = await db.getAddress(req.params.id);
-  res.send(address)
+
+  res.send(address[0].address)
   console.log('done')
 })
 
