@@ -244,12 +244,29 @@ button{
   height: 95px;
   width: 250%;
   margin-right: 8px;
+  color: rgb(59, 65, 68);
+  transition: transform 0.5s ease; /* our nice transition */
+}
 
+.weekday{
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.month{
+  font-size: 14px;
+}
+
+.date{
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 25px;
 }
 
 .day{
+  padding: 0.5px;
   box-sizing: border-box;
-  padding-top: 10px;
+  padding-top: 6.5px;
   text-align: center;
   line-height: 20px;
   margin-top: 5px;
@@ -259,6 +276,18 @@ button{
   margin-right: 5px;
   border:1.5px rgba(0, 0, 0, 0.18) solid;
   border-radius: 8px;
+
+}
+
+.day:hover{
+  background-color: rgba(59, 65, 68, 0.03);
+  cursor: pointer;
+
+}
+
+.day-selected{
+  border: 2px rgb(0, 173, 187) solid;
+
 }
 
 .day-blank{
@@ -274,8 +303,47 @@ button{
 
 .cal-view-two{
 
-  transform: translateX(-51%);
-  transition: transform 1s ease; /* our nice transition */
+  transform: translateX(-54.5%);
+  transition: transform 0.5s ease; /* our nice transition */
+}
+
+#next{
+  outline: none;
+  background-color: rgb(255,255,255);
+  border:1.5px rgba(0, 0, 0, 0.18) solid;
+  position: relative;
+  height:32px;
+  width: 32px;
+  border-radius: 30px;
+  vertical-align: 150%;
+  margin-bottom: 30px;
+  margin-left: -23px;
+}
+
+#prev{
+  outline: none;
+  background-color: rgb(255,255,255);
+  border:1.5px rgba(0, 0, 0, 0.18) solid;
+  position: relative;
+  height:32px;
+  width: 32px;
+  border-radius: 30px;
+  vertical-align: 155%;
+
+  margin-right: -18px;
+}
+
+#prev:hover{
+  cursor: pointer;
+  border: none;
+
+  box-shadow: 6px 5px 24px -2px rgba(88,101,104,0.4);
+}
+
+#next:hover{
+  cursor: pointer;
+  border: none;
+  box-shadow: 6px 5px 24px -2px rgba(88,101,104,0.37);
 }
 
 /************ TOOLTIP ************/
