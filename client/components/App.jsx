@@ -8,7 +8,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       view: 'tour',
-      address: null
+      address: null,
+      id: null
     };
   }
 
@@ -29,6 +30,7 @@ class App extends React.Component {
     axios.get(`/api/homes/${id}`)
       .then(res => {
         this.setState({
+          id: id,
           address: res.data
         })
       })
@@ -51,7 +53,7 @@ class App extends React.Component {
             <span className={this.state.view === 'tour' ? "btn-info-bottom tour-info-bottom" : "btn-info-bottom"}></span>
             <span onClick={() => {this.changeView('info')}} className= "btn-info">Request Info</span>
           </div>
-          <Tour address={this.state.address} />
+          <Tour id={this.state.id} />
         </div>
       );
     } else {

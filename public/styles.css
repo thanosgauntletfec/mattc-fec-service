@@ -1,8 +1,9 @@
 #app{
-  height:620px;
+  height:auto;
   width: 310px;
   display:flex;
-  font-family: TruliaSans, system, -apple-system, Roboto, "Segoe UI Bold", Arial, sans-serif;
+
+  font-family: 'Mulish', sans-serif;
 }
 
 .options{
@@ -11,11 +12,10 @@
   display: flex;
 }
 
-
-
 #tour{
+  font-family: 'Mulish', sans-serif;
   padding: 16px;
-  height: 540px;
+  height: 540px; /*  change to auto */
   width: 275px;
   border: 1.5px rgba(0, 0, 0, 0.18) solid;
   margin-top: 1px;
@@ -23,24 +23,24 @@
   border-radius:  0px 8px 8px 8px;
   grid-row-start: 1;
   grid-row-end: 2;
-  overflow: hidden;
+  padding-bottom: 25px;
 }
 
 #info{
-
   padding: 16px;
   height: 540px;
   width: 275px;
   border:1.5px rgba(0, 0, 0, 0.18) solid;
   box-shadow: rgba(59, 65, 68, 0.18) 0px 17px 21px -1px;
   border-radius: 8px 0px 8px 8px;
-
 }
-
-/* border: 0.5px rgba(95, 109, 116, 0.18) solid; */
 
 /************ BUTTONS ************/
 
+button{
+  font: inherit;
+  font-family: 'Mulish', sans-serif;
+}
 .btn-tour{
 
   color: rgb(90,156,163);
@@ -53,6 +53,7 @@
   padding: 8px 16px;
   cursor:pointer;
   position: relative;
+  font-family: 'Mulish', sans-serif !important;
 
 
 }
@@ -66,35 +67,25 @@
 }
 
 .tour-active-top{
-
  border: none;
  cursor: pointer;
-
-
 }
-
-
-
 
 .btn-tour-bottom{
   height: 20px;
   width: 154px;
   margin-top: 23px;
   margin-left: 1px;
-border: none;
+  border: none;
   position: absolute;
-
   cursor: pointer;
 }
 
 .tour-active-bottom{
-
-
   border-radius: 0px;
   cursor: pointer;
   border:none;
   border-bottom: 1px rgb(255, 255, 255) solid;
-
 }
 
 .btn-info{
@@ -107,7 +98,6 @@ border: none;
   font-weight: lighter;
   padding: 8px 16px;
   cursor: pointer;
-
 }
 
 .tour-active{
@@ -148,8 +138,6 @@ border: none;
 .tour-type{
   height:45px;
   width:100%;
-  grid-row-start: 1;
-  grid-row-end: 2;
 }
 
 button{
@@ -159,22 +147,25 @@ button{
 }
 
 .inperson{
+  color: rgb(59,65,68);
   background-color: rgb(255,255,255);
   border-radius: 8px 0px 0px 8px;
   border-right:none;
   border: 0.5px rgba(0, 0, 0, 0.18) solid;
   font-size: 16px;
   outline: none;
-
+  font-weight: bold;
 }
 
 .videochat{
+  color: rgb(59,65,68);
   background-color: rgb(255,255,255);
   border-radius: 0px 8px 8px 0px;
   border-left:none;
   border: 0.5px rgba(0, 0, 0, 0.18) solid;
   font-size: 16px;
   outline: none;
+  font-weight: bold;
 }
 
 .inperson:hover{
@@ -206,16 +197,16 @@ button{
 /************ GRID ************/
 
 
-.container-tour{
+/* .container-tour{
   display: grid;
-  /* grid-template-columns: */
+
   grid-template-rows:90px 95px 220px auto
 }
 
 .container-info{
   display: grid;
 
-}
+} */
 
 
 /************ TEXT ************/
@@ -223,8 +214,10 @@ button{
 .type-text{
   color: rgb(134, 144, 153);
   width:100%;
-  margin-bottom:15px;
+  margin-bottom:8px;
   margin-top: 10px;
+  font-family: 'Mulish', sans-serif;
+  font-weight: normal;
 }
 
 .weekday{
@@ -246,6 +239,9 @@ button{
   margin-right: 8px;
   color: rgb(59, 65, 68);
   transition: transform 0.5s ease; /* our nice transition */
+  margin-top: 35px;
+  margin-left: 19px;
+  font-family: 'Mulish', sans-serif;
 }
 
 .weekday{
@@ -303,19 +299,19 @@ button{
 
 .cal-view-two{
 
-  transform: translateX(-54.5%);
+  transform: translateX(-48%);
   transition: transform 0.5s ease; /* our nice transition */
 }
 
 #next{
   outline: none;
   background-color: rgb(255,255,255);
-  border:1.5px rgba(0, 0, 0, 0.18) solid;
+  border:0.5px rgba(0, 0, 0, 0.18) solid;
   position: relative;
   height:32px;
   width: 32px;
   border-radius: 30px;
-  vertical-align: 150%;
+  vertical-align: 100%;
   margin-bottom: 30px;
   margin-left: -23px;
 }
@@ -323,13 +319,12 @@ button{
 #prev{
   outline: none;
   background-color: rgb(255,255,255);
-  border:1.5px rgba(0, 0, 0, 0.18) solid;
+  border:0.5px rgba(0, 0, 0, 0.18) solid;
   position: relative;
   height:32px;
   width: 32px;
   border-radius: 30px;
-  vertical-align: 155%;
-
+  vertical-align: 110%;
   margin-right: -18px;
 }
 
@@ -344,6 +339,12 @@ button{
   cursor: pointer;
   border: none;
   box-shadow: 6px 5px 24px -2px rgba(88,101,104,0.37);
+}
+
+.calendar-wrapper{
+  overflow: hidden;
+  width: 310px;
+  margin-left: -20px;
 }
 
 /************ TOOLTIP ************/
@@ -390,5 +391,114 @@ button{
   font-weight: lighter;
   margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
 }
+
+/************ FORMS ************/
+
+
+.choose-time{
+  width: 100%;
+  height: 40px;
+  border:1.5px rgba(0, 0, 0, 0.18) solid;
+  outline: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top:3px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgb(59, 65, 58);
+}
+
+select{
+  color: -internal-light-dark(black, white);
+  font-family: 'Mulish', sans-serif;
+}
+
+.choose-time:focus{
+  box-shadow: rgb(48,120,130) 0px 0px 0px 2.5px;
+
+}
+
+.input-left, .input-right, .input-whole{
+  margin-top: 8px;
+
+  height: 30px;
+  border:1.5px rgba(0, 0, 0, 0.18) solid;
+  outline: none;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.input-left{
+  margin-right: 3.5px;
+  width: 127px;
+}
+
+.input-right{
+  margin-left: 3.5px;
+  width: 127px;
+}
+
+.input-whole{
+  width: 98%;
+}
+
+.input-left:focus, .input-right:focus, .input-whole:focus{
+  box-shadow: rgb(48,120,130) 0px 0px 0px 2px;
+}
+
+#financing{
+  vertical-align: -10%;
+  margin-top: 10px;
+
+}
+
+.financing{
+  color: rgb(134, 144, 153);
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+#schedule-tour{
+  height: 40px;
+  margin-top: 10px;
+  width: 98%;
+  background: rgb(217,60,46);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  outline: none;
+  border: none;
+}
+#schedule-tour:hover{
+  background-color: white;
+  border: 1.5px rgb(217,60,46) solid;
+  color: rgb(217,60,46);
+  cursor: pointer;
+}
+
+.svg{
+  height:25px;
+  width: 25px;
+  vertical-align: top;
+  margin-right: 10px;
+  fill:  rgb(48,120,130) !important;
+}
+
+.advisory{
+  color: rgb(48,120,130);
+  margin-top: 10px;
+}
+
+.advisory-title{
+  line-height: 1;
+}
+
+.advisory-info{
+  color: rgb(134, 144, 153);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
 
 
