@@ -73,7 +73,6 @@ class Tour extends React.Component {
       email: inputs.[3].value,
       financing: inputs[4].checked
     }
-    console.log(formInfo)
     axios.post('/api/tours', formInfo)
       .then(res => {
         console.log(res)

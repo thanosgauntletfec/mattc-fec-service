@@ -23,7 +23,8 @@ class Info extends React.Component {
       body: list[3].value,
       finance: list[5].checked
     }
-    console.log(formData)
+    //make api call to post formdata
+    //console.log(formData)
 
   }
 
