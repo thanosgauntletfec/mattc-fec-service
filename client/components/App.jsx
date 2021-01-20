@@ -9,10 +9,16 @@ class App extends React.Component {
     this.state = {
       view: 'tour',
       address: null,
-      id: null
+      id: null,
+      name: '',
+      phone: '',
+      email: ''
     };
   }
 
+  updateFormsTracker() {
+    
+  }
 
 
   getRandomId() {

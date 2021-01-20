@@ -82,15 +82,9 @@ class Tour extends React.Component {
   }
 
   toggleCheckBox() {
-    if (this.state.financing === true) {
-      this.setState({
-        financing: false
-      })
-    } else {
-      this.setState({
-        financing: true
-      })
-    }
+    this.setState({
+      financing: !this.state.financing
+    })
   }
 
   getCurrentWeek() {
@@ -170,19 +164,19 @@ class Tour extends React.Component {
               <option  value="">Choose a time</option>
               {timesList}
             </select>
-            <input type="text" className="input-left" placeholder="Name"></input>
-            <input type="text" className="input-right" placeholder="Phone"></input>
-            <input type="email" className="input-whole" placeholder="Email"></input>
-            <input onClick={this.toggleCheckBox} type="checkbox" id="financing" name="financing"></input>
+            <input type="text" className="input-left" placeholder="Name"  required></input>
+            <input type="text" className="input-right" placeholder="Phone"  required></input>
+            <input type="email" className="input-whole" placeholder="Email"  required></input>
+            <input onClick={this.toggleCheckBox} type="checkbox" id="financing" name="financing"  required></input>
             <label className="financing" htmlFor="financing">{this.state.financing === false ? 'I want to talk about financing' : 'A licensed lender will call you soon'}</label>
-            <button id="schedule-tour" type="submit">Schedule a Tour</button>
+            <button className="btn-submit" type="submit">Schedule a Tour</button>
           </form>
           <div className="advisory">
             <svg className="svg colored" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
               <path d="M27.549 26.933H4.371L15.96 3.755l11.589 23.178zM14.63 21.28v2.66h2.66v-2.66h-2.66zm0-8.585v6.643h2.66v-6.643h-2.66z" fill="currentColor"></path>
             </svg>
             <span className="advisory-title" >Public Health Advisory</span>
-            <p className="advisory-info">By pressing Schedule A Tour, you agree that Trulia and real estate professionals may contact you via phone/text about your inquiry, which may involve the use of automated means. You are not required to consent as a condition of purchasing any property, goods or services. Message/data rates may apply. You also agree to our Terms of Use  Trulia does not endorse any real estate professionals {`\n`}</p>
+            <p className="advisory-info">By pressing Schedule A Tour, you agree that Trulia and real estate professionals may contact you via phone/text about your inquiry, which may involve the use of automated means. You are not required to consent as a condition of purchasing any property, goods or services. Message/data rates may apply. You also agree to our Terms of Use  Trulia does not endorse any real estate professional. </p>
           </div>
 
         </div>

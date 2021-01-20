@@ -15,7 +15,7 @@
 #tour{
   font-family: 'Mulish', sans-serif;
   padding: 16px;
-  height: 540px; /*  change to auto */
+  height: auto; /*  change to auto */
   width: 275px;
   border: 1.5px rgba(0, 0, 0, 0.18) solid;
   margin-top: 1px;
@@ -26,9 +26,9 @@
   padding-bottom: 25px;
 }
 
-#info{
+.info{
   padding: 16px;
-  height: 540px;
+  height: auto;
   width: 275px;
   border:1.5px rgba(0, 0, 0, 0.18) solid;
   box-shadow: rgba(59, 65, 68, 0.18) 0px 17px 21px -1px;
@@ -191,22 +191,6 @@ button{
   background-color: rgb(48,120,130);
 
 }
-
-
-
-/************ GRID ************/
-
-
-/* .container-tour{
-  display: grid;
-
-  grid-template-rows:90px 95px 220px auto
-}
-
-.container-info{
-  display: grid;
-
-} */
 
 
 /************ TEXT ************/
@@ -459,7 +443,7 @@ select{
   margin-left: 5px;
 }
 
-#schedule-tour{
+.btn-submit{
   height: 40px;
   margin-top: 10px;
   width: 98%;
@@ -469,8 +453,9 @@ select{
   font-weight: bold;
   outline: none;
   border: none;
+  border-radius:8px;
 }
-#schedule-tour:hover{
+.btn-submit:hover{
   background-color: white;
   border: 1.5px rgb(217,60,46) solid;
   color: rgb(217,60,46);
