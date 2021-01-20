@@ -6,7 +6,7 @@ var con = mysql.createConnection({
   host: "localhost",
   user: "student",
   password: "student",
-  database: "homes"
+  database: "trulia"
 
 });
 

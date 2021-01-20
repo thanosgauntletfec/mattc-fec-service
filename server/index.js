@@ -21,6 +21,17 @@ app.get('/api/homes/:id', async (req, res) => {
   console.log('done')
 })
 
+app.post('/api/tours', (req, res) => {
+  db.scheduleTour(req.body)
+  res.send()
+
+})
+
+app.get('/api/tours/:id/:day', async (req, res) => {
+  let bookedTimes = await db.checkAvailability(req.params.id, req.params.day);
+  res.send(bookedTimes);
+})
+
 
 
 app.listen(port, () => {

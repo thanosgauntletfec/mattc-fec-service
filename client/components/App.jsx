@@ -19,7 +19,7 @@ class App extends React.Component {
     function getRandomArbitrary(min, max) {
       return Math.floor(Math.random() * (max - min) + min);
     }
-    let id = getRandomArbitrary(540, 640);
+    let id = getRandomArbitrary(1, 100);
     console.log(id)
     return id;
   }

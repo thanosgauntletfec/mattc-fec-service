@@ -3,12 +3,13 @@ import Dates from './Dates.jsx';
 import axios from 'axios';
 
 
+
 class Tour extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       tourType: 'inperson',
-      date: 'day1',
+      date: '',
       currentWeek: [],
       financing: false,
       availableTimes: ["9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM",
@@ -20,12 +21,41 @@ class Tour extends React.Component {
     this.selectDate = this.selectDate.bind(this)
     this.toggleCheckBox = this.toggleCheckBox.bind(this);
     this.formSubmit = this.formSubmit.bind(this);
+    this.updateTimeSelection = this.updateTimeSelection.bind(this);
   }
 
   componentDidMount() {
     var thisWeek = this.getCurrentWeek();
+
     this.setState({
-      currentWeek: thisWeek
+      currentWeek: thisWeek,
+      date: thisWeek[0].join(',')
+    })
+  }
+
+
+
+  updateTimeSelection(day) {
+    axios.get(`/api/tours/${this.props.id}/${day}`)
+    .then((res) => {
+      var bookedTimes = [];
+      for (var item in res.data) {
+        bookedTimes.push(res.data[item].timeslot)
+      }
+      var times = ["9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM",
+      "12:00 PM", "12:30 PM", "1:00 PM", "1:30 PM", "2:00 PM", "2:30 PM",
+      "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM", "5:00 PM", "5:30 PM",
+      "6:00 PM", "6:30 PM", "7:00 PM"];
+      var availableTimes = times.filter(item => !bookedTimes.includes(item))
+      if (availableTimes !== this.state.availableTimes) {
+        this.setState({
+          availableTimes: availableTimes
+        })
+      }
+
+    })
+    .catch((err) => {
+      console.log(err)
     })
   }
 
@@ -44,7 +74,11 @@ class Tour extends React.Component {
       financing: inputs[4].checked
     }
     console.log(formInfo)
-    //axios.post('/api/h')
+    axios.post('/api/tours', formInfo)
+      .then(res => {
+        console.log(res)
+        this.updateTimeSelection(this.state.date.split(',').join(' '));
+      })
   }
 
   toggleCheckBox() {
@@ -87,6 +121,7 @@ class Tour extends React.Component {
     this.setState({
       date: date
     })
+    this.updateTimeSelection( date.split(',').join(' '));
   }
 
 
