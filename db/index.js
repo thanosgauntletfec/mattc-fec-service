@@ -40,6 +40,17 @@ const checkAvailability = (id, day) => {
   })
 }
 
+const postInfoRequest = ({ name, email, phone, body, house_id, financing }) => {
+  return new Promise((resolve, rejext) => {
+    con.query(`INSERT INTO info_requests VALUES (NULL, "${house_id}", "${financing}", "${name}", "${phone}", "${email}")`);
+    if (err) {
+      console.log(err);
+      reject(err)
+    }
+    resolve(res)
+  })
+}
+
 const scheduleTour = ({ name, day, email, financing, house_id, phone, time, tourType}) => {
   console.log('scheduling tour')
   return new Promise((resolve, reject) => {
@@ -58,7 +69,8 @@ const scheduleTour = ({ name, day, email, financing, house_id, phone, time, tour
 module.exports = {
   getAddress,
   scheduleTour,
-  checkAvailability
+  checkAvailability,
+  postInfoRequest
 }
 
 

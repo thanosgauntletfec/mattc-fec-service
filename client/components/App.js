@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import Tour from './Tour.jsx';
-import Info from './Info.jsx';
+import Tour from './Tour.js';
+import Info from './Info.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,10 +14,14 @@ class App extends React.Component {
       phone: '',
       email: ''
     };
+
+    this.updateFormsTracker = this.updateFormsTracker.bind(this);
   }
 
-  updateFormsTracker() {
-
+  updateFormsTracker(name, value) {
+    let obj = {}
+    obj[name] = value
+    this.setState(obj)
   }
 
 
@@ -39,6 +43,9 @@ class App extends React.Component {
           address: res.data
         })
       })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   changeView(view) {
@@ -48,6 +55,15 @@ class App extends React.Component {
   }
 
   render() {
+    let info = {
+      id: this.state.id,
+      address: this.state.address,
+      name: this.state.name,
+      phone: this.state.phone,
+      email: this.state.email,
+      updateFormsTracker: this.updateFormsTracker
+    }
+
     if (this.state.view === 'tour') {
       return (
         <div>
@@ -58,7 +74,7 @@ class App extends React.Component {
             <span className={this.state.view === 'tour' ? "btn-info-bottom tour-info-bottom" : "btn-info-bottom"}></span>
             <span onClick={() => {this.changeView('info')}} className= "btn-info">Request Info</span>
           </div>
-          <Tour id={this.state.id} />
+          <Tour info={info} />
         </div>
       );
     } else {
@@ -72,7 +88,7 @@ class App extends React.Component {
             <span className="btn-info-bottom info-active-bottom"></span>
             <span onClick={() => {this.changeView('info')}} className="btn-info info-active">Request Info</span>
           </div>
-          <Info address={this.state.address} />
+          <Info info={info} />
         </div>
       );
     }
