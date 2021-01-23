@@ -15,7 +15,7 @@
 #tour{
   font-family: 'Mulish', sans-serif;
   padding: 16px;
-  height: auto; /*  change to auto */
+  height: 540px; /*  change to auto */
   width: 275px;
   border: 1.5px rgba(0, 0, 0, 0.18) solid;
   margin-top: 1px;
@@ -26,9 +26,9 @@
   padding-bottom: 25px;
 }
 
-.info{
+#info{
   padding: 16px;
-  height: auto;
+  height: 540px;
   width: 275px;
   border:1.5px rgba(0, 0, 0, 0.18) solid;
   box-shadow: rgba(59, 65, 68, 0.18) 0px 17px 21px -1px;
@@ -142,12 +142,11 @@ button{
 
 button{
   height: 45px;
-  width: 130px;
+  width: 50%;
   border-radius: 8px;
 }
 
 .inperson{
-  height: 40px;
   color: rgb(59,65,68);
   background-color: rgb(255,255,255);
   border-radius: 8px 0px 0px 8px;
@@ -159,8 +158,6 @@ button{
 }
 
 .videochat{
-  height: 40px;
-  width: 145px;
   color: rgb(59,65,68);
   background-color: rgb(255,255,255);
   border-radius: 0px 8px 8px 0px;
@@ -196,12 +193,23 @@ button{
 }
 
 
-/************ TEXT ************/
 
-.interactive-info{
-  text-decoration: none;
-  color: rgb(48,120,130);
+/************ GRID ************/
+
+
+/* .container-tour{
+  display: grid;
+
+  grid-template-rows:90px 95px 220px auto
 }
+
+.container-info{
+  display: grid;
+
+} */
+
+
+/************ TEXT ************/
 
 .type-text{
   color: rgb(134, 144, 153);
@@ -230,11 +238,10 @@ button{
   width: 250%;
   margin-right: 8px;
   color: rgb(59, 65, 68);
-  transition: transform .25s ease-in ; /* our nice transition */
+  transition: transform 0.5s ease; /* our nice transition */
   margin-top: 35px;
   margin-left: 19px;
   font-family: 'Mulish', sans-serif;
-  scroll-behavior: smooth;
 }
 
 .weekday{
@@ -293,11 +300,10 @@ button{
 .cal-view-two{
 
   transform: translateX(-48%);
-  transition: transform 0.25s ease-out; /* our nice transition */
-  scroll-behavior: smooth;
+  transition: transform 0.5s ease; /* our nice transition */
 }
 
-#next, #next-pressed{
+#next{
   outline: none;
   background-color: rgb(255,255,255);
   border:0.5px rgba(0, 0, 0, 0.18) solid;
@@ -308,45 +314,9 @@ button{
   vertical-align: 100%;
   margin-bottom: 30px;
   margin-left: -23px;
-  padding-left: -10px;
-}
-#next-pressed{
-  background-color: #869099;
-  border: none;
 }
 
-.prev-up, .prev-down, .next-up, .nextdown{
-  height:25px;
-  width: 25px;
-  vertical-align: top;
-  margin-left: -2px;
-  margin-right: 10px;
-  fill: rgb(117, 117, 117) !important;
-}
-
-.prev-up, .prev-down{
-  margin-left: -4px;
-}
-
-
-.prev-down{
-
-  fill:  rgb(255,255,255) !important;
-}
-
-.next-down{
-
-  fill:  rgb(255,255,255) !important;
-  height: 25px;
-  width: 25px;
-  margin-left: -2px;
-  margin-right: 10px;
-  vertical-align:top;
-}
-
-
-
-#prev, #prev-pressed{
+#prev{
   outline: none;
   background-color: rgb(255,255,255);
   border:0.5px rgba(0, 0, 0, 0.18) solid;
@@ -356,11 +326,6 @@ button{
   border-radius: 30px;
   vertical-align: 110%;
   margin-right: -18px;
-}
-
-#prev-pressed{
-  background-color: #869099;
-  border: none;
 }
 
 #prev:hover{
@@ -389,8 +354,6 @@ button{
 
 }
 
-
-
 /* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
@@ -406,10 +369,8 @@ button{
   z-index: 1;
 }
 
-
-
 .tooltiptext{
-  margin-top:15px;
+  /* margin-top:15px; */
   border: 0.5px rgba(0, 0, 0, 0.18) solid;
   background-color: white;
   box-shadow: rgba(59, 65, 68, 0.18) 0px 17px 21px -1px;
@@ -430,38 +391,6 @@ button{
   font-weight: lighter;
   margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
 }
-
-.secondary{
-  height: 50px;
-  width: 320px;
-  top: default;
-  bottom: 150%;
-  left: 20%;
-  font-size: 10px;
-  margin-top: -110px;
-  margin-left: -300px !important;
-
-}
-
-.pointer-one, .pointer-two{
-  padding: 0px !important;
-  margin-top: 8px;
-  border-right: none;
-  border-bottom: none;
-  border-radius: 0px !important;
-  background: white;
-  transform: rotateY(0deg) rotate(45deg) !important;
-  height: 15px !important;
-  width: 15px !important;
-  margin-left: -12px !important;
-  box-shadow: none !important;
-}
-
-.pointer-two{
-  margin-left: -12px !important;
-}
-
-
 
 /************ FORMS ************/
 
@@ -492,7 +421,7 @@ select{
 
 .input-left, .input-right, .input-whole{
   margin-top: 8px;
-  padding-left: 8px;
+
   height: 30px;
   border:1.5px rgba(0, 0, 0, 0.18) solid;
   outline: none;
@@ -502,16 +431,16 @@ select{
 
 .input-left{
   margin-right: 3.5px;
-  width: 121px;
+  width: 127px;
 }
 
 .input-right{
   margin-left: 3.5px;
-  width: 121px;
+  width: 127px;
 }
 
 .input-whole{
-  width: 95.5%;
+  width: 98%;
 }
 
 .input-left:focus, .input-right:focus, .input-whole:focus{
@@ -530,37 +459,22 @@ select{
   margin-left: 5px;
 }
 
-.btn-submit{
+#schedule-tour{
   height: 40px;
   margin-top: 10px;
-  width: 100%;
+  width: 98%;
   background: rgb(217,60,46);
   color: white;
   font-size: 16px;
   font-weight: bold;
   outline: none;
   border: none;
-  border-radius:8px;
 }
-.btn-submit:hover{
+#schedule-tour:hover{
   background-color: white;
   border: 1.5px rgb(217,60,46) solid;
   color: rgb(217,60,46);
   cursor: pointer;
-}
-
-.btn-submitted{
-  background-color: rgb(245,246,247);
-  border: 1.5px rgba(0, 0, 0, 0.18) solid;
-  color: rgba(0, 0, 0, 0.18);
-  pointer-events: none;
-  height: 40px;
-  margin-top: 10px;
-  width: 100%;
-  font-size: 16px;
-  font-weight: bold;
-  outline: none;
-  border-radius:8px;
 }
 
 .svg{

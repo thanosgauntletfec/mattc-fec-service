@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import Tour from './Tour.js';
-import Info from './Info.js';
+import Tour from './Tour.jsx';
+import Info from './Info.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -9,43 +9,18 @@ class App extends React.Component {
     this.state = {
       view: 'tour',
       address: null,
-      id: null,
-      name: '',
-      phone: '',
-      email: '',
-      tourSubmitted: false,
-      infoSubmitted: false
+      id: null
     };
-
-    this.updateFormsTracker = this.updateFormsTracker.bind(this);
-    this.submitTourForm = this.submitTourForm.bind(this);
-    this.submitInfoForm = this.submitInfoForm.bind(this);
   }
 
-  submitTourForm() {
-    this.setState({
-      tourSubmitted: true
-    })
-  }
-
-  submitInfoForm() {
-    this.setState({
-      infoSubmitted: true
-    })
-  }
-
-  updateFormsTracker(name, value) {
-    let obj = {}
-    obj[name] = value
-    this.setState(obj)
-  }
 
 
   getRandomId() {
     function getRandomArbitrary(min, max) {
       return Math.floor(Math.random() * (max - min) + min);
     }
-    let id = getRandomArbitrary(1, 100);
+    let id = getRandomArbitrary(540, 640);
+    console.log(id)
     return id;
   }
 
@@ -59,9 +34,6 @@ class App extends React.Component {
           address: res.data
         })
       })
-      .catch(err => {
-        console.log(err)
-      })
   }
 
   changeView(view) {
@@ -71,19 +43,6 @@ class App extends React.Component {
   }
 
   render() {
-    let info = {
-      id: this.state.id,
-      address: this.state.address,
-      name: this.state.name,
-      phone: this.state.phone,
-      email: this.state.email,
-      updateFormsTracker: this.updateFormsTracker,
-      tourSubmitted: this.state.tourSubmitted,
-      infoSubmitted: this.state.infoSubmitted,
-      submitTourForm: this.submitTourForm,
-      submitInfoForm: this.submitInfoForm
-    }
-
     if (this.state.view === 'tour') {
       return (
         <div>
@@ -94,7 +53,7 @@ class App extends React.Component {
             <span className={this.state.view === 'tour' ? "btn-info-bottom tour-info-bottom" : "btn-info-bottom"}></span>
             <span onClick={() => {this.changeView('info')}} className= "btn-info">Request Info</span>
           </div>
-          <Tour info={info} />
+          <Tour id={this.state.id} />
         </div>
       );
     } else {
@@ -108,7 +67,7 @@ class App extends React.Component {
             <span className="btn-info-bottom info-active-bottom"></span>
             <span onClick={() => {this.changeView('info')}} className="btn-info info-active">Request Info</span>
           </div>
-          <Info info={info} />
+          <Info address={this.state.address} />
         </div>
       );
     }
