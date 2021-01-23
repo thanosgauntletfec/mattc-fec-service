@@ -6,8 +6,26 @@ CREATE TABLE IF NOT EXISTS address (
   PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS availability (
-  house_id int unsigned NOT NULL,
-  day varchar(20) NOT NULL,
-  time varchar(10) NOT NULL
-)
+
+CREATE TABLE `tours` (
+	id INT(9) UNSIGNED NOT NULL AUTO_INCREMENT,
+	home_id INT(9) UNSIGNED NOT NULL,
+	financing VARCHAR(255) NOT NULL,
+  name VARCHAR(100) NOT NULL,
+	timeslot VARCHAR(50) NOT NULL,
+	phone VARCHAR(255) NOT NULL,
+	email VARCHAR(100) NOT NULL,
+	tour_type VARCHAR(255) NOT NULL,
+	day VARCHAR(255) NOT NULL,
+  PRIMARY KEY(`id`)
+);
+
+CREATE TABLE `info_requests`(
+	id INT(9) UNSIGNED NOT NULL AUTO_INCREMENT,
+	home_id INT(9) UNSIGNED NOT NULL,
+	financing VARCHAR(255) NOT NULL,
+  name VARCHAR(100) NOT NULL,
+	phone VARCHAR(255) NOT NULL,
+	email VARCHAR(100) NOT NULL,
+  PRIMARY KEY(`id`)
+);

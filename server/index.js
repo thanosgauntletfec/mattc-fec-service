@@ -8,7 +8,6 @@ const port = 2080;
 
 app.use(express.static(path.join(__dirname, '../public')));
 
-//app.use(express.static('./public'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -19,6 +18,21 @@ app.get('/api/homes/:id', async (req, res) => {
 
   res.send(address[0].address)
   console.log('done')
+})
+
+app.post('/api/tours', (req, res) => {
+  db.scheduleTour(req.body)
+  res.status(200).send()
+})
+
+app.post('/api/info', (req, res) => {
+  db.postInfoRequest(req.body)
+  res.status(200).send()
+})
+
+app.get('/api/tours/:id/:day', async (req, res) => {
+  let bookedTimes = await db.checkAvailability(req.params.id, req.params.day);
+  res.status(200).send(bookedTimes);
 })
 
 

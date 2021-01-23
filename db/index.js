@@ -5,32 +5,64 @@ var con = mysql.createConnection({
   host: "localhost",
   user: "student",
   password: pw.pw,
-  database: 'homes'
+  database: 'trulia'
 });
 
-// con.connect(function(err) {
-//   if (err) throw err;
-//   con.query("SELECT * FROM customers", function (err, result, fields) {
-//     if (err) throw err;
-//     console.log(result);
-//   });
-// });
 
 const getAddress = (id) => {
   return new Promise((resolve, reject) => {
       con.query(`SELECT * FROM address WHERE id = ${id};`, (err, res) => {
       if (err) {
         console.log(err)
+        reject(err);
       }
-      console.log(res)
-      resolve(res)
+      resolve(res);
     });
   });
 };
 
+const checkAvailability = (id, day) => {
+  return new Promise((resolve, reject) => {
+    con.query(`SELECT timeslot FROM tours WHERE home_id = ${id} AND day = "${day}"`, (err, res) => {
+      if (err) {
+        console.log(err);
+        reject(err)
+      }
+      resolve(res);
+    })
+  })
+}
+
+const postInfoRequest = ({ name, email, phone, body, house_id, financing }) => {
+  return new Promise((resolve, rejext) => {
+    con.query(`INSERT INTO info_requests VALUES (NULL, "${house_id}", "${financing}", "${name}", "${phone}", "${email}")`);
+    if (err) {
+      console.log(err);
+      reject(err)
+    }
+    resolve(res)
+  })
+}
+
+const scheduleTour = ({ name, day, email, financing, house_id, phone, time, tourType}) => {
+  return new Promise((resolve, reject) => {
+    con.query(`INSERT INTO tours VALUES (NULL, ${house_id}, "${financing}", "${name}", "${time}", "${phone}", "${email}", "${tourType}", "${day}" )`, (err, res) => {
+      if (err) {
+        console.log(err);
+        reject(err)
+      }
+      console.log('done')
+      resolve(res);
+    })
+  })
+}
+
 
 module.exports = {
-  getAddress
+  getAddress,
+  scheduleTour,
+  checkAvailability,
+  postInfoRequest
 }
 
 
