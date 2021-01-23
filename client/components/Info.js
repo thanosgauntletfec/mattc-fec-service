@@ -25,8 +25,7 @@ class Info extends React.Component {
       body: list[3].value,
       financing: list[5].checked
     }
-    //make api call to post formdata
-    //console.log(formData)
+
     axios.post('/api/info', formData)
       .then(res => {
         console.log(res)

@@ -8,13 +8,6 @@ var con = mysql.createConnection({
   database: 'trulia'
 });
 
-// con.connect(function(err) {
-//   if (err) throw err;
-//   con.query("SELECT * FROM customers", function (err, result, fields) {
-//     if (err) throw err;
-//     console.log(result);
-//   });
-// });
 
 const getAddress = (id) => {
   return new Promise((resolve, reject) => {
@@ -52,7 +45,6 @@ const postInfoRequest = ({ name, email, phone, body, house_id, financing }) => {
 }
 
 const scheduleTour = ({ name, day, email, financing, house_id, phone, time, tourType}) => {
-  console.log('scheduling tour')
   return new Promise((resolve, reject) => {
     con.query(`INSERT INTO tours VALUES (NULL, ${house_id}, "${financing}", "${name}", "${time}", "${phone}", "${email}", "${tourType}", "${day}" )`, (err, res) => {
       if (err) {
