@@ -6,7 +6,7 @@ class Info extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      financing: false
+      financing: false,
     }
 
     this.toggleFinancing = this.toggleFinancing.bind(this);
@@ -30,6 +30,7 @@ class Info extends React.Component {
     axios.post('/api/info', formData)
       .then(res => {
         console.log(res)
+        this.props.info.submitInfoForm()
       })
       .catch(err => {
         console.log(err)
@@ -90,7 +91,7 @@ class Info extends React.Component {
         <InputRight name="phone" placeholder="Phone" defaultValue={this.props.info.phone}  required/>
         <InputWhole name="email" placeholder="Email" defaultValue={this.props.info.email}  required/>
         <InputBody defaultValue={`I am interested in ${this.props.info.address}`} />
-        <input className="btn-submit" value="Request Info" type="submit"></input>
+        <button className={this.props.info.infoSubmitted === false ? "btn-submit" : "btn-submitted"} type="submit">{this.props.info.infoSubmitted === false ? "Request Info" : "Message Sent"} </button>
            <input onChange={this.toggleFinancing} name="financingtwo" type="checkbox"></input>
           <label className="financing" htmlFor="financingtwo">{this.state.financing === false ? 'I want to talk about financing' : 'A licensed lender will call you soon'}</label>
         <p className="advisory-info">By pressing Request Info, you agree that Trulia and real estate professionals may contact you via phone/text about your inquiry, which may involve the use of automated means. You are not required to consent as a condition of purchasing any property, goods or services. Message/data rates may apply. You also agree to our <a className="interactive-info" href="https://www.trulia.com/info/terms/">Terms of Use </a> Trulia does not endorse any <span className="tooltip interactive-info">real estate professional<span className="tooltiptext secondary">Real estate professionals include the real estate agents and brokers, mortgage lenders and loan officers, property managers, and other professionals you interact with through Trulia.</span></span> . </p>

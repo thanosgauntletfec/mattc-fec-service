@@ -12,10 +12,26 @@ class App extends React.Component {
       id: null,
       name: '',
       phone: '',
-      email: ''
+      email: '',
+      tourSubmitted: false,
+      infoSubmitted: false
     };
 
     this.updateFormsTracker = this.updateFormsTracker.bind(this);
+    this.submitTourForm = this.submitTourForm.bind(this);
+    this.submitInfoForm = this.submitInfoForm.bind(this);
+  }
+
+  submitTourForm() {
+    this.setState({
+      tourSubmitted: true
+    })
+  }
+
+  submitInfoForm() {
+    this.setState({
+      infoSubmitted: true
+    })
   }
 
   updateFormsTracker(name, value) {
@@ -61,7 +77,11 @@ class App extends React.Component {
       name: this.state.name,
       phone: this.state.phone,
       email: this.state.email,
-      updateFormsTracker: this.updateFormsTracker
+      updateFormsTracker: this.updateFormsTracker,
+      tourSubmitted: this.state.tourSubmitted,
+      infoSubmitted: this.state.infoSubmitted,
+      submitTourForm: this.submitTourForm,
+      submitInfoForm: this.submitInfoForm
     }
 
     if (this.state.view === 'tour') {
