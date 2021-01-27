@@ -3,6 +3,7 @@ import axios from 'axios';
 import Tour from './Tour.js';
 import Info from './Info.js';
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -52,7 +53,7 @@ class App extends React.Component {
   componentDidMount() {
     let id = this.getRandomId();
     var address;
-    axios.get(`/api/homes/${id}`)
+    axios.get(`http://localhost:2080/api/homes/${id}`)
       .then(res => {
         this.setState({
           id: id,

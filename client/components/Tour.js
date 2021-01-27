@@ -38,7 +38,7 @@ class Tour extends React.Component {
   }
 
   updateTimeSelection(day) {
-    axios.get(`/api/tours/${this.props.info.id}/${day}`)
+    axios.get(`http://localhost:2080/api/tours/${this.props.info.id}/${day}`)
     .then((res) => {
       var bookedTimes = [];
       for (var item in res.data) {
@@ -75,7 +75,7 @@ class Tour extends React.Component {
       email: inputs.[3].value,
       financing: inputs[4].checked
     };
-    axios.post('/api/tours', formInfo)
+    axios.post('http://localhost:2080/api/tours', formInfo)
       .then(res => {
         console.log(res)
         this.updateTimeSelection(this.state.date.split(',').join(' '));

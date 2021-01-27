@@ -2,10 +2,15 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
-const db = require('../db')
+const db = require('../db');
+const cors = require('cors')
 
 const port = 2080;
 
+app.use(cors({
+  origin: 'http://localhost:3080'
+
+}))
 app.use(express.static(path.join(__dirname, '../public')));
 
 

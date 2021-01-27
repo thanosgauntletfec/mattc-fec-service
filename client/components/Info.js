@@ -26,7 +26,7 @@ class Info extends React.Component {
       financing: list[5].checked
     }
 
-    axios.post('/api/info', formData)
+    axios.post('http://localhost:2080/api/info', formData)
       .then(res => {
         console.log(res)
         this.props.info.submitInfoForm()
