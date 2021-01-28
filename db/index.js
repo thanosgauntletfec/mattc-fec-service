@@ -1,10 +1,10 @@
 const mysql = require('mysql');
-const pw = require('./dbpw.js');
+
 
 var con = mysql.createConnection({
   host: "localhost",
   user: "student",
-  password: pw.pw,
+  password: 'student',
   database: 'trulia'
 });
 
