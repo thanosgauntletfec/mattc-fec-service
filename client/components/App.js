@@ -53,7 +53,7 @@ class App extends React.Component {
   componentDidMount() {
     let id = this.getRandomId();
     var address;
-    axios.get(`http://localhost:2080/api/homes/${id}`)
+    axios.get(`api/homes/${id}`)
       .then(res => {
         this.setState({
           id: id,
