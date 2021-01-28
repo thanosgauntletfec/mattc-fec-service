@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const db = require('../db');
 const cors = require('cors')
 
-const port = provess.env.PORT || 2080;
+const port = process.env.PORT || 2080;
 
 app.use(cors({
   origin: 'http://localhost:3080'
