@@ -19,7 +19,7 @@ class Tour extends React.Component {
                        "6:00 PM", "6:30 PM", "7:00 PM"]
     }
     this.getCurrentWeek = this.getCurrentWeek.bind(this);
-    this.selectDate = this.selectDate.bind(this)
+    this.selectDate = this.selectDate.bind(this);
     this.toggleCheckBox = this.toggleCheckBox.bind(this);
     this.formSubmit = this.formSubmit.bind(this);
     this.updateTimeSelection = this.updateTimeSelection.bind(this);
@@ -38,7 +38,7 @@ class Tour extends React.Component {
   }
 
   updateTimeSelection(day) {
-    axios.get(`http://localhost:2080/api/tours/${this.props.info.id}/${day}`)
+    axios.get(`http://ec2-54-183-180-104.us-west-1.compute.amazonaws.com:2080/api/tours/${this.props.info.id}/${day}`)
     .then((res) => {
       var bookedTimes = [];
       for (var item in res.data) {
@@ -75,7 +75,7 @@ class Tour extends React.Component {
       email: inputs.[3].value,
       financing: inputs[4].checked
     };
-    axios.post('http://localhost:2080/api/tours', formInfo)
+    axios.post('http://ec2-54-183-180-104.us-west-1.compute.amazonaws.com:2080/api/tours', formInfo)
       .then(res => {
         console.log(res)
         this.updateTimeSelection(this.state.date.split(',').join(' '));
