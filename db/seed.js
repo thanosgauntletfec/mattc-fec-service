@@ -1,11 +1,10 @@
 const mysql = require('mysql') ;
-const pw = require('./dbpw.js');
 const faker = require('faker');
 
 var con = mysql.createConnection({
   host: "localhost",
-  user: "student",
-  password: "student",
+  user: "root",
+  password: "",
   database: "trulia"
 
 });
