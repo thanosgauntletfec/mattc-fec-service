@@ -2,7 +2,7 @@ const mysql = require('mysql');
 
 
 var con = mysql.createConnection({
-  host: "localhost",
+  host: "http://ec2-54-183-180-104.us-west-1.compute.amazonaws.com",
   user: "student",
   password: 'student',
   database: 'trulia'
