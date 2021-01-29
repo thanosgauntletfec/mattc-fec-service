@@ -8,7 +8,7 @@ const cors = require('cors')
 const port = process.env.PORT || 2080;
 
 app.use(cors({
-  origin: 'http://localhost:3080'
+  origin: 'https://ec2-54-219-189-10.us-west-1.compute.amazonaws.com:3080'
 
 }))
 app.use(express.static(path.join(__dirname, '../public')));
