@@ -5,11 +5,10 @@ const bodyParser = require('body-parser');
 const db = require('../db');
 const cors = require('cors')
 
-const port = process.env.PORT || 2080;
+const port = 2080;
 
 app.use(cors({
-  origin: 'https://ec2-54-219-189-10.us-west-1.compute.amazonaws.com:3080'
-
+  origin: 'http://ec2-54-219-189-10.us-west-1.compute.amazonaws.com:3080'
 }))
 app.use(express.static(path.join(__dirname, '../public')));
 
@@ -43,6 +42,6 @@ app.get('/api/tours/:id/:day', async (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`Example app listening at ${process.env}:${port}`);
+  console.log(`Example app listening at ${port}`);
   console.log(__dirname);
 });
