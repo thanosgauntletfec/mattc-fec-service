@@ -5,9 +5,15 @@
 
 #app{
   display: grid;
-  grid-template-columns: 225px 655px auto 225px;
+  grid-template-columns: 10.8% 31.5% auto 10.8px;
   grid-template-rows: 485px 450px 360px auto;
 }
+
+// #app{
+//   display: grid;
+//   grid-template-columns: 225px 655px auto 225px;
+//   grid-template-rows: 485px 450px 360px auto;
+// }
 
 .photo{
 
