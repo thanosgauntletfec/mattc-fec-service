@@ -5,8 +5,8 @@
 
 #app{
   display: grid;
-  grid-template-columns: 10.8% 31.5% auto 10.8px;
-  grid-template-rows: 485px 450px 360px auto;
+  grid-template-columns: 10.8% 31.5% auto 10.8px !important;
+  grid-template-rows: 485px 450px 360px auto !important;
 }
 
 // #app{
