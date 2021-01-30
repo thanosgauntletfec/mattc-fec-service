@@ -51,7 +51,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    let id = this.getRandomId();
+    let id = 101;
+    //this.getRandomId(); //set to 101 for presentation
     var address;
     axios.get(`http://ec2-54-183-180-104.us-west-1.compute.amazonaws.com:2080/api/homes/${id}`)
       .then(res => {
